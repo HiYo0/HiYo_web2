@@ -43,6 +43,9 @@ import Axios컴포넌트 from './chapter0/Axios컴포넌트';
 // Route 예제/실습
 import Route컴포넌트 from './chapter0/Route컴토넌트';
 
+// 게시판 실습/예제
+import Index from './component/Index';
+
 
 
 
@@ -56,7 +59,8 @@ root.render(
     // <AttendanceBook/>
     // <NameForm/>
     // <SignUp/>
-    <Route컴포넌트/>
+    // <Route컴포넌트/>
+    <Index/>
 );
 // !!!!!!!여기가 렌더링 되는 곳이에요
 // root.render( 
