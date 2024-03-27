@@ -18,7 +18,7 @@ public class MemberEntity extends BaseTime {//class start
     private int mno;    // 회원번호 pk
 
 
-    @Column( length = 50)
+    @Column( length = 50 , unique = true)
     private String memail;
 
     @Column( length = 30)
