@@ -1,5 +1,6 @@
 package hiyoweb.controller;
 
+import hiyoweb.model.dto.BoardDto;
 import hiyoweb.model.entity.BoardEntity;
 import hiyoweb.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class Boardcontroller {//class start
     private BoardService boardService;
 
     @PostMapping("/post.do")
-    public boolean postBoard(){return boardService.postBoard();}
+    public boolean postBoard(BoardDto boardDto){return boardService.postBoard(boardDto);}
     @GetMapping("/get.do")
     public List<Object> getBoard(){return boardService.getBoard();}
     @PutMapping("/put.do")

@@ -49,7 +49,6 @@ public class MemberEntity extends BaseTime {//class start
                 .mno(this.mno)
                 .mname(this.mname)
                 .memail(this.memail)
-                .mpassword(this.mpassword)
                 .mrol(this.mrol)
                 .build();
     }

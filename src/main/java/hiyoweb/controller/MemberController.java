@@ -1,10 +1,17 @@
 package hiyoweb.controller;
 
+import hiyoweb.model.dto.BoardDto;
 import hiyoweb.model.dto.MemberDto;
+import hiyoweb.model.entity.BoardEntity;
+import hiyoweb.model.entity.MemberEntity;
 import hiyoweb.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/member")
@@ -15,7 +22,7 @@ public class MemberController {//class start
 
     // 1. 회원가입
     @PostMapping("/signup/post.do")
-    public boolean doSignUpPost(@RequestBody MemberDto memberDto){
+    public int doSignUpPost(@RequestBody MemberDto memberDto){
         System.out.println("MemberController.doSignUpPost");
         System.out.println("memberDto = " + memberDto);
 
@@ -40,5 +47,17 @@ public class MemberController {//class start
     @GetMapping("/login/info/get.do")
     public MemberDto doLoginInfo(){
         return memberService.doLoginInfo();
+    }
+
+    @GetMapping("/find/email/get.do")
+    public int doFindEmail(String memail){
+        return memberService.getFindMemail( memail );
+    }
+
+    // 6. 내글보기
+    @GetMapping("/find/myboard/get.do")
+    public List<Map<Object,Object>> findByMyBoardList(){
+
+        return memberService.findByMyBoardList();
     }
 }//class end

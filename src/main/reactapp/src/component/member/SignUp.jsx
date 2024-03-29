@@ -23,11 +23,12 @@ export default function SignUp(props){
         let info = {'memail' : memail , 'mpassword' : mpassword , 'mname' : mname}
         axios.post("/member/signup/post.do" , info)
             .then(response => {console.log(response);
-                if(response.data){
+                if(response.data==1){
                     alert("회원가입 성공");
                     window.location.href = "/member/login";
                 }
-                else{alert("회원가입 실패");}
+                else if(response.data==0){alert("회원가입 실패");}
+                else if(response.data==-1){alert("중복된 아이디 입니다.");}
             })
             .catch(error=>{console.log(error);})
         

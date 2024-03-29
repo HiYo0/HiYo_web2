@@ -2,6 +2,7 @@ package hiyoweb.model.entity;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass //
 @EntityListeners( AuditingEntityListener.class )
+@Getter
 public class BaseTime {//class start
 
     // 1. 레코드 / 엔티티 등록날짜
@@ -19,7 +21,7 @@ public class BaseTime {//class start
 
     // 2. 레코드 / 엔티티 수정날짜
     @LastModifiedDate // 마지막 수정 날짜
-    private LocalDateTime newdate;
+    private LocalDateTime udate;
 
 }// class end
 /*

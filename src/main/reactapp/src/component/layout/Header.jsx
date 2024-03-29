@@ -15,10 +15,16 @@ export default function Header(props){
         })
         .catch((e)=>{ console.log(e);})
     } , []);
+
+    function logoutBtn(){
+        axios.get('/member/logout/get.do');
+        setloginInfo('');
+    }
     
     return(<>
         <div>
             { loginInfo && <span> {loginInfo.memail} 님</span>}
+            { loginInfo && <button type="button" onClick={logoutBtn}>로그아웃</button>}
             <ul>
                 <li><Link to="/">홈</Link></li>
                 <li><Link to="/member/signup">회원가입</Link></li>

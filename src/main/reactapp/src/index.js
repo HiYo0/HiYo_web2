@@ -46,6 +46,12 @@ import Route컴포넌트 from './chapter0/Route컴토넌트';
 // 게시판 실습/예제
 import Index from './component/Index';
 
+// chapter12 예제/실습
+import Calculator from './chapter12/Calculator';
+
+// chapter13 예제/실습
+import ProfileCard from './chapter13/ProfileCard';
+
 
 
 
@@ -61,6 +67,8 @@ root.render(
     // <SignUp/>
     // <Route컴포넌트/>
     <Index/>
+    // <Calculator/>
+    // <ProfileCard/>
 );
 // !!!!!!!여기가 렌더링 되는 곳이에요
 // root.render( 
