@@ -52,7 +52,10 @@ import Calculator from './chapter12/Calculator';
 // chapter13 예제/실습
 import ProfileCard from './chapter13/ProfileCard';
 
-
+// chapter14 예제/실습
+import ContextApp from './chapter14/ContextApp';
+import ContextApp2 from './chapter14/ContextApp2';
+import DarkOrLight from './chapter14/DarkOrLight';
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
@@ -66,6 +69,8 @@ root.render(
     // <NameForm/>
     // <SignUp/>
     // <Route컴포넌트/>
+    // <Index/>
+    // <ContextApp/>
     <Index/>
     // <Calculator/>
     // <ProfileCard/>
