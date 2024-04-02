@@ -1,30 +1,37 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MediaCard from "./MediaCard";
 
-export default function BoardView(){
+export default function BoardView(props){
 
     const [ content , setCotent ] = useState([]);
+
+
     
     useEffect(()=>{
         axios.get("/board/get.do")
         .then((r)=>{
-            console.log(r)
-            const result = r.data.map( (re) =>{return re;})
-            setCotent(result)
+            console.log(r);
+            const result = r.data.map( (re) =>{return re;});
+            setCotent(result);
         })
     },[])
+    
+
+    
 
     return(<>
-        <div>출력시키기</div>
+        <div style={{display:"flex"}}>
         
-        {content.map((r)=>{
+        {
+        content.map((r)=>{
             return(
-                <div>
-                    작성자 이메일 : {r.memail} /////////내용 : {r.bcontent}
-          
-                </div>
+                <MediaCard board={r}/>
             )
-        })}
+        })
+        }
+
+        </div>
 
        
     </>);

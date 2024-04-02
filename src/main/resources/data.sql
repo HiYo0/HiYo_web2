@@ -26,3 +26,12 @@ insert
     ( '댓글4' , 2 , 1 ),
     ( '댓글5' , 3 , 4 ),
     ( '댓글5' , 1 , 5 );
+/* 4. 파일 샘플 데이터 */
+insert
+    into boardfile( bimg , bno_fk )
+    values( 'img1.png' , 1 ),
+    ( 'img2.png' , 1 ),
+    ( 'img3.png' , 2 ),
+    ( 'img4.png' , 3 ),
+    ( 'img5.png' , 4 ),
+    ( '사진6.png' , 5 );

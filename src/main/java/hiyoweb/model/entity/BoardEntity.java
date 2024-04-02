@@ -7,6 +7,7 @@ import org.hibernate.annotations.ColumnDefault;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table( name = "board")
@@ -35,6 +36,13 @@ public class BoardEntity extends BaseTime{//class start
     @Builder.Default // 빌더패턴 사용시 해당 필드의 초기값을 빌더 초기값으로 사용.
     private List<ReplyEntity> replyEntityList = new ArrayList<>();
 
+    // 양방향 설정
+    @OneToMany(mappedBy = "boardEntity")
+    @ToString.Exclude
+    @Builder.Default
+    private List<BoardFileEntity> boardFileEntityList = new ArrayList<>();
+
+    // 게시물 출력
     public BoardDto toDto(){
         return BoardDto.builder()
                 .bno(this.bno)
@@ -44,6 +52,11 @@ public class BoardEntity extends BaseTime{//class start
                 .memail(memberEntity.getMemail())
                 .cdate(this.getCdate())
                 .udate(this.getUdate())
+                .bimglist(
+                        this.boardFileEntityList.stream().map(
+                                (imgEntity)->{ return imgEntity.getBimg();}
+                        ).collect(Collectors.toList())
+                )
                 .build();
     }
     

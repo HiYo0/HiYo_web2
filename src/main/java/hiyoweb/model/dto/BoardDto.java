@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -25,6 +26,12 @@ public class BoardDto extends BaseTimeDto {
     private int mno_fk;     // (MemberEntity)회원 번호
     private String memail;  // (MemberEntity)회원 이메일
 
+
+    // 1. 출력용 게시물 이미지 필드 ( 파일이름만 여러개 출력하면 되니까)
+    private List<String> bimglist = new ArrayList<>();
+
+    // 2. 등록용 게시물 이미지 필드
+    private List<MultipartFile> uploadList = new ArrayList<>();
 
     // 글쓰기
     public BoardEntity toEntity(){
