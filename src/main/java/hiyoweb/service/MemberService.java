@@ -77,6 +77,9 @@ public class MemberService {//class start
     public boolean dologoutGet( MemberDto memberDto ){
         // 세션 지우기
         request.getSession().setAttribute("loginInfo",null);
+        if(request.getSession().getAttribute("loginInfo")==null){
+            return true;
+        }
         return false;
     }
 

@@ -9,11 +9,11 @@ import java.util.UUID;
 @Service
 public class FileService {//class start
 
-    // 어디에( PATH ) 누구를(파일객체) // 등록위치
+    // 어디에( PATH ) 누구를(파일객체) // 등록위치(내장서버 경로)
     String uploadPath = "C:\\Users\\504\\Desktop\\HiYo_web2\\build\\resources\\main\\static\\uploadimg\\";
 
 
-    public String  fileupload(MultipartFile multipartFile){
+    public String fileupload(MultipartFile multipartFile){
         // 난수 식별코드 생성
         String uuid = UUID.randomUUID().toString();
 

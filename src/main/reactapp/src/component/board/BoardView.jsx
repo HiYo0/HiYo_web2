@@ -1,37 +1,48 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MediaCard from "./MediaCard";
+import { Pagination } from "@mui/material";
 
 export default function BoardView(props){
 
-    const [ content , setCotent ] = useState([]);
+    const [ pageDto , setPageDto ] = useState({"page":1 , "count" : 0,"data":[]});
+
+    
+    const handleChange = (event, value) => {
+        pageDto.page=value;
+            setPageDto({...pageDto});
+        };
 
 
     
     useEffect(()=>{
-        axios.get("/board/get.do")
+        const info = {page : pageDto.page , view : 2}
+        axios.get(`/board/get.do`,{params:info})
         .then((r)=>{
             console.log(r);
-            const result = r.data.map( (re) =>{return re;});
-            setCotent(result);
+            // const result = r.data.map( (re) =>{return re;});
+            setPageDto(r.data);
         })
-    },[])
+    },[pageDto.page])
     
 
     
 
     return(<>
-        <div style={{display:"flex"}}>
+        <div style={{display:"flex" ,flexWrap : "wrap"}}>
         
         {
-        content.map((r)=>{
+        pageDto.data.map((r)=>{
             return(
-                <MediaCard board={r}/>
+                <MediaCard board={r} setPageDto = {setPageDto}/>
             )
         })
         }
 
         </div>
+        <ul>
+            <Pagination count={ pageDto.count } page={pageDto.page} onChange={handleChange} />
+        </ul>
 
        
     </>);

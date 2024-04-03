@@ -1,6 +1,7 @@
 package hiyoweb.controller;
 
 import hiyoweb.model.dto.BoardDto;
+import hiyoweb.model.dto.PageDto;
 import hiyoweb.model.entity.BoardEntity;
 import hiyoweb.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,20 @@ public class Boardcontroller {//class start
         return boardService.postBoard(boardDto);
     }
     @GetMapping("/get.do")
-    public List<BoardDto> getBoard(){return boardService.getBoard();}
+    public PageDto getBoard(@RequestParam int page , @RequestParam int view){
+        return boardService.getBoard(page,view);
+    }
     @PutMapping("/put.do")
     public boolean putBoard(){return boardService.putBoard();}
+
     @DeleteMapping("/delete.do")
-    public boolean deleteBoard(){return boardService.deleteBoard();}
+    // 1 삭제성공
+    // 0 삭제실패
+    // -1 다른사람꺼임 아이디 불일치
+    public int deleteBoard(@RequestParam int bno){
+        System.out.println("bno = " + bno);
+
+        return boardService.deleteBoard(bno);
+    }
 
 }//class End
