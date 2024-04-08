@@ -41,7 +41,7 @@ public class ChatSocket extends TextWebSocketHandler {//class start
         }
     }
 
-    // 3. 클라이언트 소켓과 접속 종료되었을때
+    // 3. 클라이언트 소켓과 접속 종료되었을때1
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
