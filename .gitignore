@@ -41,3 +41,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 /src/main/reactapp/node_modules/
+/src/main/resources/static/static/

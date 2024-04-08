@@ -21,6 +21,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok' // 롬북
     runtimeOnly 'com.mysql:mysql-connector-j' // MySQL
     annotationProcessor 'org.projectlombok:lombok' // 롬북
+    implementation 'org.springframework.boot:spring-boot-starter-websocket' // 소켓
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
